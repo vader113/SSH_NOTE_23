@@ -1,10 +1,10 @@
 #
-# Infinix NOTE 23 - Device Definition
+# ssh NOTE 23 - Device Definition
 #
 
 LOCAL_PATH := $(call my-dir)
 
-# --- Base platform
+# --- Base platform and Branding
 PRODUCT_PLATFORM := mt6789
 PRODUCT_DEVICE := NOTE_23
 PRODUCT_BRAND := ssh
@@ -15,7 +15,8 @@ PRODUCT_MODEL := NOTE 23
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_FULL_TREBLE_COMPATIBLE := true
 
-# --- Copy fstab and init scripts
+# --- Copy fstab and init scripts (FSTAB PATH CORRECTED)
+# The fstab is in the device root and copied to the ramdisk.
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.note_23:$(TARGET_COPY_OUT_RAMDISK)/fstab.note_23
 
@@ -27,17 +28,14 @@ PRODUCT_COPY_FILES += $(foreach f, $(wildcard $(LOCAL_PATH)/rootdir/init*.rc), \
 PRODUCT_COPY_FILES += $(foreach f, $(wildcard $(LOCAL_PATH)/configs/permissions/*.xml), \
     $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/$(notdir $(f)))
 
-# --- Overlay (optional; comment out if none)
-#PRODUCT_PACKAGE_OVERLAYS += \
-#    $(LOCAL_PATH)/overlay
-
 # --- System properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=480 \
     ro.vendor.build.security_patch=2024-06-01 \
     ro.hardware=mt6789
 
-# --- Include vendor blobs (⚠️ Ensure vendor/infinix/note_23/vendor.mk exists)
+# --- Include vendor blobs (CRITICAL: NOTE_23-vendor.mk must exist)
+# NOTE: The original comment referred to 'infinix', which is now ignored.
 $(call inherit-product-if-exists, vendor/ssh/NOTE_23/NOTE_23-vendor.mk)
 
 # --- A/B OTA support
