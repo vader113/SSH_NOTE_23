@@ -50,6 +50,19 @@ BOARD_SSH_DYNAMIC_PARTITIONS_PARTITION_LIST := \
 # LOGICAL CORRECTION: Set to 'false' for native Treble support (API 33).
 BOARD_BUILD_RETROFIT_DYNAMIC_PARTITIONS := false 
 
+# --- A/B OTA Partitions (Required when AB_OTA_UPDATER is true)
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    odm \
+    product \
+    system \
+    system_ext \
+    vendor \
+    vendor_boot \
+    vendor_dlkm \
+    odm_dlkm
+
 # --- Partition sizes (⚠️ CRITICAL: MUST BE EXACT)
 BOARD_SUPER_PARTITION_SIZE := 9663676416
 BOARD_SSH_DYNAMIC_PARTITIONS_SIZE := 9663676416

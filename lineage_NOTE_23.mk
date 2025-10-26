@@ -1,5 +1,5 @@
 #
-# Product definition for Infinix NOTE 23
+# Product definition for ssh NOTE 23
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
@@ -12,5 +12,10 @@ PRODUCT_MODEL := NOTE 23
 PRODUCT_MANUFACTURER := ssh
 PRODUCT_RELEASE_NAME := NOTE_23
 
-# --- Shipping API (⚠️ Update from build.prop)
+# --- Shipping API (Android 13)
 PRODUCT_SHIPPING_API_LEVEL := 33
+
+# FIX: Dexpreopt failure for LineageOS platform services
+# This ensures the package is built and included correctly.
+PRODUCT_PACKAGES += \
+    org.lineageos.platform

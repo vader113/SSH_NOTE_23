@@ -15,6 +15,16 @@ PRODUCT_MODEL := NOTE 23
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_FULL_TREBLE_COMPATIBLE := true
 
+ODM_MANIFEST_FILES += \
+    vendor/ssh/NOTE_23/proprietary/odm/etc/vintf/manifest_dsds.xml \
+    vendor/ssh/NOTE_23/proprietary/odm/etc/vintf/manifest_qsqs.xml \
+    vendor/ssh/NOTE_23/proprietary/odm/etc/vintf/manifest_ss.xml \
+    vendor/ssh/NOTE_23/proprietary/odm/etc/vintf/manifest_tsts.xml \
+    vendor/ssh/NOTE_23/proprietary/vendor/odm/etc/vintf/manifest_dsds.xml \
+    vendor/ssh/NOTE_23/proprietary/vendor/odm/etc/vintf/manifest_qsqs.xml \
+    vendor/ssh/NOTE_23/proprietary/vendor/odm/etc/vintf/manifest_ss.xml \
+    vendor/ssh/NOTE_23/proprietary/vendor/odm/etc/vintf/manifest_tsts.xml
+
 # --- Copy fstab and init scripts (FSTAB PATH CORRECTED)
 # The fstab is in the device root and copied to the ramdisk.
 PRODUCT_COPY_FILES += \
