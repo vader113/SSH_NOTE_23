@@ -4,6 +4,8 @@
 #
 include vendor/ssh/NOTE_23/BoardConfigVendor.mk
 
+DEVICE_PATH := device/ssh/NOTE_23
+
 BUILD_BROKEN_DUP_RULES := true
 
 BOARD_VENDOR := ssh
@@ -89,7 +91,7 @@ TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_ODM := odm
 
 # --- Recovery (FSTAB PATH CORRECTED)
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/fstab.note_23 # Corrected path
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/fstab.note_23
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
