@@ -25,10 +25,14 @@ ODM_MANIFEST_FILES += \
     vendor/ssh/NOTE_23/proprietary/vendor/odm/etc/vintf/manifest_ss.xml \
     vendor/ssh/NOTE_23/proprietary/vendor/odm/etc/vintf/manifest_tsts.xml
 
+# FIX: Suppress automatic manifest fragment generation for the Biometrics service
+TARGET_VENDOR_MANIFEST_FRAGMENT_OVERRIDES += \
+    android.hardware.biometrics.fingerprint@2.1-service:
+
 # --- Copy fstab and init scripts (FSTAB PATH CORRECTED)
 # The fstab is in the device root and copied to the ramdisk.
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/fstab.note_23:$(TARGET_COPY_OUT_RAMDISK)/fstab.note_23
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/fstab.note_23:$(TARGET_COPY_OUT_RAMDISK)/fstab.note_23
 
 # Copy all extracted init rc files from vendor_ramdisk
 PRODUCT_COPY_FILES += $(foreach f, $(wildcard $(LOCAL_PATH)/rootdir/init*.rc), \
@@ -53,3 +57,4 @@ AB_OTA_UPDATER := true
 PRODUCT_PACKAGES += \
     update_engine \
     update_verifier
+

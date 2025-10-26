@@ -19,3 +19,6 @@ PRODUCT_SHIPPING_API_LEVEL := 33
 # This ensures the package is built and included correctly.
 PRODUCT_PACKAGES += \
     org.lineageos.platform
+
+#TARGET_VENDOR_MANIFEST_FRAGMENT_OVERRIDES += \
+#    android.hardware.biometrics.fingerprint@2.1-service:
