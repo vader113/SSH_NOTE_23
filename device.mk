@@ -45,7 +45,6 @@ PRODUCT_COPY_FILES += $(foreach f, $(wildcard $(LOCAL_PATH)/configs/permissions/
 # --- System properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=480 \
-    ro.vendor.build.security_patch=2024-06-01 \
     ro.hardware=mt6789
 
 # --- Include vendor blobs (CRITICAL: NOTE_23-vendor.mk must exist)
